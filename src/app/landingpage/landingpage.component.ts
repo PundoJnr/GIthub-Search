@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ProfileComponent} from '@angular/common/http';
+import {LandingpageService} from '../github/landingpage.service';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-landingpage',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingpageComponent implements OnInit {
 
-  constructor() { }
+  profile:any= []
+  repos:any= []
+  username:string
+
+  constructor(private landingpageServe:LandingpageService) { }
 
   ngOnInit() {
-  }
+   this.landingpageServe.updateprofile(this.username);
+   this.landingpageServe.getprofileInfo().subscribe(profile=>{
+     console.log(profile);
+     this.profile=profile;
+ })
+   this.landingpageServe.getprofileRepos().subscribe(repos=>{
+     console.log(repos);
+     this.repos=repos;
+   })
+
+ }
+
+ findprofile(){
+   this.landingpageServe.updateprofile(this.username);
+   this.landingpageServe.getprofileInfo().subscribe(profile=>{
+     console.log(profile);
+     this.profile=profile;
+ })
+   this.landingpageServe.getprofileRepos().subscribe(repos=>{
+     console.log(repos);
+     this.repos=repos;
+   })
+
+ }
 
 }
