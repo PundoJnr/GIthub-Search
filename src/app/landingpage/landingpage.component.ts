@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ProfileComponent} from '@angular/common/http';
+//import {ProfileComponent} from '@angular/common/http';
 import {LandingpageService} from '../github/landingpage.service';
 import {FormsModule} from '@angular/forms';
 
