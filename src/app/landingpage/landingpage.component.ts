@@ -17,8 +17,8 @@ export class LandingpageComponent implements OnInit {
   constructor(private landingpageServe:LandingpageService) { }
 
   ngOnInit() {
-   this.landingpageServe.updateprofile(this.username);
-   this.landingpageServe.getprofileInfo().subscribe(profile=>{
+   this.landingpageServe.updateprofile("cynthiataragon");
+   this.landingpageServe.getprofileInfo("cynthiataragon").subscribe(profile=>{
      console.log(profile);
      this.profile=profile;
  })
@@ -31,7 +31,7 @@ export class LandingpageComponent implements OnInit {
 
  findprofile(){
    this.landingpageServe.updateprofile(this.username);
-   this.landingpageServe.getprofileInfo().subscribe(profile=>{
+   this.landingpageServe.getprofileInfo(this.username).subscribe(profile=>{
      console.log(profile);
      this.profile=profile;
  })

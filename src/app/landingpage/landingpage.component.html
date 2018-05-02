@@ -3,17 +3,18 @@
       <h1>Search Github</h1>
     </div>
     <!-- form-search -->
-    <form class="search-form">
+    <form (ngSubmit)='findprofile()' class="search-form">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="search github" [(ngModel)]="username"
-                name="username" (keyup)="findprofile()" >
+          <input type="text" class="form-control" placeholder="search users in with git usernames" [(ngModel)]="username"
+                name="username" >
+          <button  type="submit">search</button>
         </div>
     </form>
 
   <div *ngIf="profile">
         <div class="panel panel-default">
           <div class="panel-heading">
-            Taragon<small>({{profile.login}})</small>
+            {{profile.name}}<small>({{profile.login}})</small>
             <span *ngIf="profile.company">,works at {{profile.company}}</span>
             {{profile.location}}
           </div>

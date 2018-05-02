@@ -6,14 +6,14 @@ import 'rxjs/add/operator/map'
 export class LandingpageService {
 
   private username: string;
-  private apikey :string = "6b9d6ab43223d0d7fce7cd308c417fb5c79787b2";
+  private apikey :string = "2bf1bedfa268888ef5ffada82d2fe5b644b87742";
 
   constructor(private http:HttpClient) {
-console.log("service is ready");
-this.username='Taragon';
+      console.log("service is ready");
  }
- getprofileInfo(){
-   return this.http.get("https://api.github.com/users/"+ this.username +"?access_token=" +this.apikey)
+ getprofileInfo(username){
+   console.log(this.username);
+   return this.http.get("https://api.github.com/users/"+username+"?access_token=" +this.apikey)
     .map(res=>res);
  }
  getprofileRepos(){
