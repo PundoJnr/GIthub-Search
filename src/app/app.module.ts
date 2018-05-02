@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-//import {HttpModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { LandingpageService} from './github/landingpage.service'
 
 
@@ -19,7 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     BrowserModule,
     FormsModule,
-    //HttpModule
+    HttpClientModule
   ],
   providers: [LandingpageService],
   bootstrap: [AppComponent]
